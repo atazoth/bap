@@ -13,7 +13,8 @@ namespace loader {
 using namespace llvm;
 using namespace llvm::object;
 
-#if LLVM_VERSION_MAJOR == 4 && LLVM_VERSION_MINOR == 0
+#if LLVM_VERSION_MAJOR == 4 && LLVM_VERSION_MINOR == 0 \
+    || LLVM_VERSION_MAJOR == 5 && LLVM_VERSION_MINOR == 0
 
 error_or<object::Binary> get_binary(const char* data, std::size_t size) {
     StringRef data_ref(data, size);
